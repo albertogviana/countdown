@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link href="topcoat/css/topcoat-mobile-light.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/jquery.countdown.css" />
+<title>Countdown App</title>
+</head>
+<body>
+	<div class="topcoat-navigation-bar">
+		<div class="topcoat-navigation-bar__item center full">
+			<h1 class="topcoat-navigation-bar__title">Countdown</h1>
+		</div>
+	</div>
+
+	<p>Time remaining</p>
+
+	<div id="defaultCountdown"></div>
+
+	<script type="text/javascript" src="cordova-2.7.0.js"></script>
+	<script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.countdown.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					document.addEventListener("deviceready", countdown, false);
+
+					function countdown() {
+						var date = new Date(2013, 7, 12);
+						date = new Date(date.getFullYear(),
+								date.getMonth() - 1, date.getUTCDate());
+						$('#defaultCountdown').countdown({
+							until : date
+						});
+					}
+
+				});
+	</script>
+</body>
+</html>
